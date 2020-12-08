@@ -5,6 +5,8 @@ import goodevening from './goodevening.jpg';
 import goodafternoon from './goodafternoon.jpg';
 import goodnight from './goodnight.jpg';
 
+import React, { useState } from 'react';
+
 //import './App.css';
 
 const bgimages = {
@@ -14,24 +16,36 @@ const bgimages = {
   gn: goodnight
 };
 
-function App() {
-		/*
-		let MySystemTime = new Date().toLocaleString();
+function App() {		
+	
+		//let MySystemTime = new Date().toLocaleString();
+		
 		var today = new Date(),
 		time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-		*/
 	
-		var today = new Date();
+	
+		//var today = new Date();
 		var hours = today.getHours();
-		//var minutes = today.getMinutes();
+		var minutes = today.getMinutes();
+		var seconds = today.getSeconds();
+		
 		var ampm = hours >= 12 ? 'pm' : 'am';
 		
 		hours = hours % 12;
 		hours = hours ? hours : 12; // the hour '0' should be '12'
-		//minutes = minutes < 10 ? '0'+minutes : minutes;
-		//var clockTime = hours + ':' + minutes + ' ' + ampm;
+		minutes = minutes < 10 ? '0'+ minutes : minutes;
+		
+		var clockTime = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+
 		//var strTime = hours + ampm;
 		var strTime = hours;
+				
+		const [newtime, setnewTime] = useState(time);
+		
+		const Click = () => {
+			setnewTime(clockTime);
+			console.log("your system time is", clockTime);
+		}
 		
 		if(ampm === "am"){
 			
@@ -39,6 +53,8 @@ function App() {
 			return (
 				<div style={{background:`url(${bgimages.gm})`,backgroundPosition: 'center',backgroundSize: 'cover',backgroundRepeat: 'no-repeat',height:'100vh'}}>
 					<h1 style={{textAlign:'center',color:'#fff'}}>Hello Vichitra Choudhary,<br/> Good Morning</h1>
+					<p style={{textAlign:'center',color:'#fff'}}>You system time is: {newtime}</p>
+					<button style={{textAlign:'center',margin:'0 auto',display:'block'}} onClick={Click}>Click me</button>
 				</div>
 				);
 			}
@@ -47,6 +63,8 @@ function App() {
 			return (
 				<div style={{background:`url(${bgimages.gm})`,backgroundPosition: 'center',backgroundSize: 'cover',backgroundRepeat: 'no-repeat',height:'100vh'}}>
 					<h1 style={{textAlign:'center',color:'#fff'}}>Hello Vichitra Choudhary,<br/> Too early Good Morning</h1>
+					<p style={{textAlign:'center',color:'#fff'}}>You system time is: {newtime}</p>
+					<button style={{textAlign:'center',margin:'0 auto',display:'block'}} onClick={Click}>Click me</button>
 				</div>
 				);
 			}
@@ -59,6 +77,8 @@ function App() {
 			return (
 				<div style={{background:`url(${bgimages.ga})`,backgroundPosition: 'center',backgroundSize: 'cover',backgroundRepeat: 'no-repeat',height:'100vh'}}>
 					<h1 style={{textAlign:'center',color:'#fff'}}>Hello Vichitra Choudhary,<br/> Good Afternoon</h1>
+					<p style={{textAlign:'center',color:'#fff'}}>You system time is: {newtime}</p>
+					<button style={{textAlign:'center',margin:'0 auto',display:'block'}} onClick={Click}>Click me</button>
 				</div>
 				);
 				
@@ -69,6 +89,8 @@ function App() {
 			return (
 				<div style={{background:`url(${bgimages.ge})`,backgroundPosition: 'center',backgroundSize: 'cover',backgroundRepeat: 'no-repeat',height:'100vh'}}>
 					<h1 style={{textAlign:'center',color:'#fff'}}>Hello Vichitra Choudhary,<br/> Good Evening</h1>
+					<p style={{textAlign:'center',color:'#fff'}}>You system time is: {newtime}</p>
+					<button style={{textAlign:'center',margin:'0 auto',display:'block'}} onClick={Click}>Click me</button>
 				</div>
 				);
 				
@@ -79,6 +101,8 @@ function App() {
 			return (
 				<div style={{background:`url(${bgimages.gn})`,backgroundPosition: 'center',backgroundSize: 'cover',backgroundRepeat: 'no-repeat',height:'100vh'}}>
 					<h1 style={{textAlign:'center',color:'#fff'}}>Hello Vichitra Choudhary,<br/> Good Night</h1>
+					<p style={{textAlign:'center',color:'#fff'}}>You system time is: {newtime}</p>
+					<button style={{textAlign:'center',margin:'0 auto',display:'block'}} onClick={Click}>Click me</button>
 				</div>
 				);
 				
