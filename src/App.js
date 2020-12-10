@@ -72,7 +72,19 @@ function App() {
 		
 		if(ampm === "pm"){
 			
-			if( (strTime === 12 || strTime >= 1) && (strTime <= 4) ){
+			if( strTime >= 12 ){
+			
+			return (
+				<div style={{background:`url(${bgimages.ga})`,backgroundPosition: 'center',backgroundSize: 'cover',backgroundRepeat: 'no-repeat',height:'100vh'}}>
+					<h1 style={{textAlign:'center',color:'#fff'}}>Hello Vichitra Choudhary,<br/> Good Afternoon at sharp noon</h1>
+					<p style={{textAlign:'center',color:'#fff'}}>You system time is: {newtime}</p>
+					<button style={{textAlign:'center',margin:'0 auto',display:'block'}} onClick={Click}>Click me</button>
+				</div>
+				);
+				
+			}
+			
+			if( (strTime >= 1 && strTime <= 4) ){
 			
 			return (
 				<div style={{background:`url(${bgimages.ga})`,backgroundPosition: 'center',backgroundSize: 'cover',backgroundRepeat: 'no-repeat',height:'100vh'}}>
